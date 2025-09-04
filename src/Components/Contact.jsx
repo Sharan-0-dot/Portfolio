@@ -32,10 +32,10 @@ function Contact() {
       };
 
       const result = await emailjs.send(
-        'service_n4wu5ji',
-        'template_5rrk6iq',
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         templateParams,
-        'RXNOSQ2Wz9SP41El4'
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       console.log('Email sent successfully:', result);
