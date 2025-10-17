@@ -6,16 +6,7 @@ function About() {
           <div className="relative inline-block">
             <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 mx-auto bg-gradient-to-br from-blue-200 to-purple-200 rounded-full flex items-center justify-center shadow-2xl">
               <div className="w-44 h-44 sm:w-60 sm:h-60 md:w-72 md:h-72 bg-white rounded-full flex items-center justify-center shadow-xl overflow-hidden">
-                <img
-                  src="/mainPhoto.JPG"
-                  alt="Sharan SC"
-                  className="w-full h-full object-cover rounded-full"
-                  onError={(e) => {
-                    e.target.style.display = "none";
-                    e.target.nextSibling.style.display = "block";
-                  }}
-                />
-                <div className="text-4xl sm:text-5xl md:text-6xl hidden">
+                <div className="text-4xl sm:text-5xl md:text-6xl">
                   👨‍💻
                 </div>
               </div>
