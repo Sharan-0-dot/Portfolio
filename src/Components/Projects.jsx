@@ -4,6 +4,15 @@ import { ExternalLink } from 'lucide-react';
 function Projects() {
   const projects = [
     {
+      title: "AI Resume Builder",
+      description:
+        "An intelligent microservices-based application that generates ATS-friendly resumes using Google's Gemini AI. The system uses Eureka service registry for service discovery, API Gateway for routing, and Apache POI to create professionally formatted, editable Word documents. Users receive optimized resumes with enhanced content, proper formatting, and keyword optimization tailored for Applicant Tracking Systems, ensuring maximum job application success.",
+      tech: ["Spring Boot", "Microservices", "Gemini AI", "Apache POI", "Eureka", "API Gateway", "MySQL"],
+      image:
+        "https://play-lh.googleusercontent.com/9cStI0kHWmjALUEVwZwkuPhkwtuesVwSgQeHUA4YEqGRzF31yXYjjdpAQkW5DGqp2dE",
+      link: "https://resume-builder-frontend-blond.vercel.app/",
+    },
+    {
       title: "Journal App",
       description:
         "A secure journaling platform where users can write and share blogs, with authentication to protect their accounts. It also includes a public real-time chat room, allowing users to interact and discuss ideas live. Designed to be simple, responsive, and easy to use for a smooth writing and collaboration experience.",

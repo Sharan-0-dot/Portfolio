@@ -3,6 +3,14 @@ import { ExternalLink } from 'lucide-react';
 function Certifications() {
   const certifications = [
     {
+      title: "Problem Solving(Intermidiate)",
+      issuer: "HackerRank",
+      date: "2025",
+      credentialId: "e0eaaf7e4c99",
+      image: "/problem-solving(in).png",
+      link: "https://www.hackerrank.com/certificates/e0eaaf7e4c99"
+    },
+    {
       title: "Java",
       issuer: "HackerRank",
       date: "2025",
