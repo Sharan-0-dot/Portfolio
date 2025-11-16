@@ -1,4 +1,3 @@
-
 import { ExternalLink } from 'lucide-react';
 
 function Projects() {
@@ -11,6 +10,7 @@ function Projects() {
       image:
         "https://play-lh.googleusercontent.com/9cStI0kHWmjALUEVwZwkuPhkwtuesVwSgQeHUA4YEqGRzF31yXYjjdpAQkW5DGqp2dE",
       link: "https://resume-builder-frontend-blond.vercel.app/",
+      github: "https://github.com/Sharan-0-dot/ResumeBuilder-Micro-Service-",
     },
     {
       title: "Journal App",
@@ -19,6 +19,7 @@ function Projects() {
       tech: ["React", "SpringBoot", "MongoDB", "Tailwind", "WebSockets"],
       image: "https://weandthecolor.com/wp-content/uploads/2012/10/Journal-iOS-Icon-Design-25356.jpg",
       link: "https://blog-app-psi-tan.vercel.app/",
+      github: "https://github.com/Sharan-0-dot/BlogApp-SpringBoot",
     },
     {
       title: "Converge",
@@ -28,6 +29,7 @@ function Projects() {
       image:
         "https://i.pinimg.com/736x/04/ae/44/04ae44bdd748cc51bce741a4c54e78ad.jpg",
       link: "https://converge-psi.vercel.app/",
+      github: "https://github.com/Sharan-0-dot/Converge-springboot",
     },
   ];
 
@@ -75,22 +77,42 @@ function Projects() {
                   ))}
                 </div>
 
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium group"
-                >
-                  View Project
-                  <ExternalLink
-                    size={16}
-                    className="group-hover:translate-x-1 transition-transform duration-300"
-                  />
-                </a>
+                <div className="flex items-center gap-6">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium group"
+                  >
+                    View Project
+                    <ExternalLink
+                      size={16}
+                      className="group-hover:translate-x-1 transition-transform duration-300"
+                    />
+                  </a>
+
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium group"
+                  >
+                    GitHub
+                    <ExternalLink
+                      size={16}
+                      className="group-hover:translate-x-1 transition-transform duration-300"
+                    />
+                  </a>
+                </div>
               </div>
             </div>
           ))}
         </div>
+      </div>
+          <div className="mt-10 w-full overflow-hidden whitespace-nowrap">
+        <p className="text-center text-red-600 font-medium animate-marquee">
+          ⚠️ These projects are hosted on Render’s free tier. When you open them, they may take 30–60 seconds to start up.
+        </p>
       </div>
     </section>
   );

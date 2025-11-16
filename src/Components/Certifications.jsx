@@ -3,6 +3,14 @@ import { ExternalLink } from 'lucide-react';
 function Certifications() {
   const certifications = [
     {
+      title: "Cloud Computing 101",
+      issuer: "AWS (Amazon Web Service)",
+      date: "2025",
+      credentialId: "",
+      image: "/cloud.png",
+      link: "https://www.credly.com/badges/8541cdbd-022e-4c98-9535-affdc0470d95/public_url"
+    },
+    {
       title: "Problem Solving(Intermidiate)",
       issuer: "HackerRank",
       date: "2025",
