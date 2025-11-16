@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Navigation from './Navigation';
 import Hero from './Hero';
 import About from './About';
@@ -13,40 +13,53 @@ function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const scrollTimeout = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
-
-      const sections = ["hero", "about", "projects", "certifications", "publications", "contact"];
-      const currentSection = sections.find((section) => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-
-      if (currentSection) {
-        setActiveSection(currentSection);
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
       }
+      scrollTimeout.current = setTimeout(() => {
+        const newScrollY = window.scrollY;
+        setScrollY(newScrollY);
+
+        const sections = ["hero", "about", "projects", "certifications", "publications", "resume", "contact"];
+        const threshold = window.innerHeight / 3;
+        
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= threshold && rect.bottom >= threshold) {
+              setActiveSection(section);
+              break;
+            }
+          }
+        }
+      }, 100);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
+      }
+    };
   }, []);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = useCallback((sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
       setIsMenuOpen(false);
     }
-  };
+  }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 text-gray-800 overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-gray-800 text-gray-100">
       <Navigation 
         activeSection={activeSection}
         isMenuOpen={isMenuOpen}

@@ -16,73 +16,67 @@ function Publications() {
   ];
 
   return (
-    <section id="publications" className="py-16 sm:py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-800">
+    <section id="publications" className="py-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
             Research Publications
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 px-4">
+          <p className="text-xl text-gray-400">
             Published research work and academic contributions
           </p>
         </div>
 
-        <div className="space-y-6 sm:space-y-8">
+        <div className="space-y-8">
           {publications.map((paper, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:scale-[1.01] sm:hover:scale-[1.02] transition-all duration-500"
+              className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-cyan-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/20"
             >
-              {/* Title */}
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-800 leading-tight">
+              <h3 className="text-2xl font-bold mb-6 text-cyan-400 leading-tight">
                 {paper.title}
               </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <span className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"></span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div className="flex items-center gap-3 text-sm text-gray-400 bg-gray-900/50 px-4 py-2 rounded-lg">
+                  <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                   <span className="truncate">{paper.journal}</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <span className="w-2 h-2 bg-green-600 rounded-full flex-shrink-0"></span>
+                <div className="flex items-center gap-3 text-sm text-gray-400 bg-gray-900/50 px-4 py-2 rounded-lg">
+                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                   <span>{paper.publishDate}</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <span className="w-2 h-2 bg-purple-600 rounded-full flex-shrink-0"></span>
+                <div className="flex items-center gap-3 text-sm text-gray-400 bg-gray-900/50 px-4 py-2 rounded-lg">
+                  <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
                   <span className="truncate">DOI: {paper.doi}</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <span className="w-2 h-2 bg-yellow-600 rounded-full flex-shrink-0"></span>
-                  <span>Cited by: {paper.citedBy}</span>
+                <div className="flex items-center gap-3 text-sm text-gray-400 bg-gray-900/50 px-4 py-2 rounded-lg">
+                  <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                  <span>Cited: {paper.citedBy}</span>
                 </div>
               </div>
 
-              {/* Authors */}
-              <div className="mb-4">
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-                  <span className="font-medium">Authors:</span> {paper.authors}
+              <div className="mb-6">
+                <p className="text-gray-300 leading-relaxed">
+                  <span className="font-semibold text-cyan-400">Authors:</span> {paper.authors}
                 </p>
               </div>
 
-              {/* Abstract */}
-              <div className="mb-6">
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+              <div className="mb-8">
+                <p className="text-gray-400 leading-relaxed">
                   {paper.abstract}
                 </p>
               </div>
 
-              {/* Action Button */}
-              <div className="flex justify-start">
-                <a
-                  href={paper.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm sm:text-base rounded-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 w-full sm:w-auto justify-center sm:justify-start"
-                >
-                  View on IEEE Xplore
-                  <ExternalLink size={16} className="flex-shrink-0" />
-                </a>
-              </div>
+              <a
+                href={paper.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transform hover:scale-105 transition-all duration-300"
+              >
+                View on IEEE Xplore
+                <ExternalLink size={18} />
+              </a>
             </div>
           ))}
         </div>

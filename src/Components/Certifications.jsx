@@ -11,7 +11,7 @@ function Certifications() {
       link: "https://www.credly.com/badges/8541cdbd-022e-4c98-9535-affdc0470d95/public_url"
     },
     {
-      title: "Problem Solving(Intermidiate)",
+      title: "Problem Solving (Intermediate)",
       issuer: "HackerRank",
       date: "2025",
       credentialId: "e0eaaf7e4c99",
@@ -27,7 +27,7 @@ function Certifications() {
       link: "https://www.hackerrank.com/certificates/d19baa412ea5"
     },
     {
-      title: "Problem Solving(Basic)",
+      title: "Problem Solving (Basic)",
       issuer: "HackerRank",
       date: "2025",
       credentialId: "88a488a7e661",
@@ -35,7 +35,7 @@ function Certifications() {
       link: "https://www.hackerrank.com/certificates/88a488a7e661"
     },
     {
-      title: "MySql",
+      title: "MySQL",
       issuer: "HackerRank",
       date: "2025",
       credentialId: "f614c9056464",
@@ -53,13 +53,13 @@ function Certifications() {
   ];
 
   return (
-    <section id="certifications" className="py-20 bg-white/50">
+    <section id="certifications" className="py-20 bg-gray-900/50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-gray-800">
+          <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
             Certifications
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-400">
             Professional certifications and achievements
           </p>
         </div>
@@ -68,9 +68,9 @@ function Certifications() {
           {certifications.map((cert, index) => (
             <div
               key={index}
-              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-500"
+              className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-cyan-500/50 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/20"
             >
-              <div className="aspect-square overflow-hidden bg-gray-50 flex items-center justify-center p-8">
+              <div className="aspect-square overflow-hidden bg-gray-900 flex items-center justify-center p-8">
                 <img
                   src={cert.image}
                   alt={cert.title}
@@ -78,15 +78,15 @@ function Certifications() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-gray-800">
+                <h3 className="text-xl font-bold mb-2 text-cyan-400">
                   {cert.title}
                 </h3>
-                <p className="text-gray-600 mb-2 font-medium">{cert.issuer}</p>
+                <p className="text-gray-400 mb-2 font-medium">{cert.issuer}</p>
                 <p className="text-gray-500 text-sm mb-4">{cert.date}</p>
                 
-                {cert.credentialId && (
-                  <p className="text-xs text-gray-400 mb-4">
-                    Credential ID: {cert.credentialId}
+                {cert.credentialId && cert.credentialId !== "null" && (
+                  <p className="text-xs text-gray-600 mb-4 font-mono bg-gray-900/50 px-2 py-1 rounded">
+                    ID: {cert.credentialId}
                   </p>
                 )}
                 
@@ -95,13 +95,10 @@ function Certifications() {
                     href={cert.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium group"
+                    className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-medium group/link"
                   >
                     View Certificate
-                    <ExternalLink
-                      size={16}
-                      className="group-hover:translate-x-1 transition-transform duration-300"
-                    />
+                    <ExternalLink size={16} className="group-hover/link:translate-x-1 transition-transform duration-300" />
                   </a>
                 )}
               </div>
