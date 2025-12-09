@@ -13,41 +13,25 @@ function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const scrollTimeout = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-      scrollTimeout.current = setTimeout(() => {
-        const newScrollY = window.scrollY;
-        setScrollY(newScrollY);
+    const sectionIds = ["hero", "about", "projects", "certifications", "publications", "resume", "contact"];
 
-        const sections = ["hero", "about", "projects", "certifications", "publications", "resume", "contact"];
-        const threshold = window.innerHeight / 3;
-        
-        for (const section of sections) {
-          const element = document.getElementById(section);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            if (rect.top <= threshold && rect.bottom >= threshold) {
-              setActiveSection(section);
-              break;
-            }
-          }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
         }
-      }, 100);
-    };
+      },
+      { threshold: 0.3 }
+    );
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-    };
+    sectionIds.forEach(id => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const scrollToSection = useCallback((sectionId) => {
