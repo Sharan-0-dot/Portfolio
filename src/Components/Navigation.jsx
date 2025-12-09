@@ -83,5 +83,4 @@ function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection,
     </nav>
   );
 }
-
 export default Navigation;

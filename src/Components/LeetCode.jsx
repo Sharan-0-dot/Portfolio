@@ -51,5 +51,4 @@ function LeetCode() {
     </section>
   );
 }
-
 export default LeetCode;
