@@ -43,13 +43,21 @@ function About() {
           <div className="space-y-6">
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300">
               <p className="text-lg text-gray-300 leading-relaxed">
-                I'm a Computer Science engineering student with a passion for building scalable backends and solving tough problems. I treat DSA like my daily workout — <span className="text-cyan-400 font-semibold">600+ problems solved on LeetCode</span> and counting! When I'm not debugging or optimizing code, you'll probably find me planning my next full-stack project or learning something new.
+                I'm a computer science engineering student who enjoys building reliable backend systems and improving through consistent problem-solving. I regularly practice DSA — with over- 
+                <span className="text-cyan-400 font-semibold">700 problems on LeetCode</span> — focusing on understanding concepts rather than just solving for numbers. I like learning new tools, exploring system design ideas, and working on projects that challenge me to think better.
               </p>
             </div>
 
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300">
               <p className="text-lg text-gray-300 leading-relaxed">
-                Currently, I am building full-stack projects using <span className="text-cyan-400">React</span> for the frontend and working with <span className="text-cyan-400">Spring Boot</span> for the backend, where I have implemented features like JWT authentication, database integration, and real-time communication using WebSockets.
+                I’ve been building full-stack projects using 
+                <span className="text-cyan-400"> React </span>
+                on the frontend and 
+                <span className="text-cyan-400"> Spring Boot </span>
+                on the backend, with experience in features like JWT authentication, database operations, and WebSocket-based communication. I also have hands-on experience with 
+                <span className="text-cyan-400"> AWS, Docker, Kafka, and microservices architecture </span>, and I’ve recently started learning 
+                <span className="text-cyan-400"> low-level design (LLD) </span>
+                to strengthen my system-building fundamentals.
               </p>
             </div>
           </div>

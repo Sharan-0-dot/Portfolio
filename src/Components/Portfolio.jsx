@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Navigation from './Navigation';
 import Hero from './Hero';
 import About from './About';
@@ -8,6 +8,7 @@ import Publications from './Publications';
 import Resume from "./Resume";
 import Contact from './Contact';
 import Footer from './Footer';
+import LeetCode from "./leetcode";
 
 function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero");
@@ -15,15 +16,26 @@ function Portfolio() {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const sectionIds = ["hero", "about", "projects", "certifications", "publications", "resume", "contact"];
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = ["hero", "about", "leetcode", "projects", "certifications", "publications", "resume", "contact"];
 
     const observer = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        }
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
       },
-      { threshold: 0.3 }
+      { 
+        threshold: 0.2,
+        rootMargin: "-100px 0px -100px 0px"
+      }
     );
 
     sectionIds.forEach(id => {
@@ -53,6 +65,7 @@ function Portfolio() {
       />
       <Hero scrollToSection={scrollToSection} scrollY={scrollY} />
       <About />
+      <LeetCode />
       <Projects />
       <Certifications />
       <Publications />

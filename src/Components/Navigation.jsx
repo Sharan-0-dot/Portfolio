@@ -6,6 +6,7 @@ function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection,
   const navItems = [
     { id: "hero", label: "Home" },
     { id: "about", label: "About" },
+    { id: "leetcode", label: "Leetcode" },
     { id: "projects", label: "Projects" },
     { id: "certifications", label: "Certifications" },
     { id: "publications", label: "Publications" },
