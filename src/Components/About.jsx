@@ -6,14 +6,14 @@ function About() {
     { name: "Spring Boot", icon: "🍃", category: "Backend" },
     { name: "React", icon: "⚛️", category: "Frontend" },
     { name: "JavaScript", icon: "📜", category: "Frontend" },
-    { name: "MySQL", icon: "🗄️", category: "Database" },
+    { name: "Postgresql", icon: "🗄️", category: "Database" },
     { name: "MongoDB", icon: "🍃", category: "Database" },
     { name: "Microservices", icon: "🔄", category: "Architecture" },
     { name: "WebSockets", icon: "🔌", category: "Real-time" },
     { name: "REST API", icon: "🔗", category: "Backend" },
     { name: "Git", icon: "📦", category: "Tools" },
     { name: "Docker", icon: "🐳", category: "DevOps" },
-    { name: "Tailwind CSS", icon: "🎨", category: "Frontend" },
+    { name: "Apache Kafka", icon: "📡", category: "Backend Messaging Framework" }
   ];
 
   return (
@@ -44,21 +44,17 @@ function About() {
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300">
               <p className="text-lg text-gray-300 leading-relaxed">
                 I'm a computer science engineering student who enjoys building reliable backend systems and improving through consistent problem-solving. I regularly practice DSA — with over- 
-                <span className="text-cyan-400 font-semibold">700 problems on LeetCode</span> — focusing on understanding concepts rather than just solving for numbers. I like learning new tools, exploring system design ideas, and working on projects that challenge me to think better.
+                <span className="text-cyan-400 font-semibold">700 problems on LeetCode</span> — and — <span className="text-cyan-400 font-semibold">Contest rating of 1677</span> — focusing on understanding concepts rather than just solving for numbers. I like learning new tools, exploring system design ideas, and working on projects that challenge me to think better.
               </p>
             </div>
 
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-cyan-500/50 transition-all duration-300">
               <p className="text-lg text-gray-300 leading-relaxed">
-                I’ve been building full-stack projects using 
-                <span className="text-cyan-400"> React </span>
-                on the frontend and 
-                <span className="text-cyan-400"> Spring Boot </span>
-                on the backend, with experience in features like JWT authentication, database operations, and WebSocket-based communication. I also have hands-on experience with 
-                <span className="text-cyan-400"> AWS, Docker, Kafka, and microservices architecture </span>, and I’ve recently started learning 
-                <span className="text-cyan-400"> low-level design (LLD) </span>
-                to strengthen my system-building fundamentals.
+                Experienced in building scalable and production-ready systems with expertise in 
+                <span className="text-cyan-400">React, Spring Boot, AWS, Docker, Kafka, and microservices architecture</span>. Skilled in implementing features like JWT authentication, database operations, and real-time communication via WebSockets. Recently, I’ve been expanding my knowledge in 
+                <span className="text-cyan-400">low-level design (LLD)</span> to strengthen my system design fundamentals.
               </p>
+
             </div>
           </div>
 
