@@ -16,7 +16,7 @@ function Hero({ scrollToSection }) {
         </h1>
 
         <p className="text-2xl sm:text-3xl md:text-4xl mb-4">
-          <span className="text-cyan-400 font-semibold">Full Stack Developer</span>
+          <span className="text-cyan-400 font-semibold">Software Engineer</span>
         </p>
         
         <p className="text-lg sm:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
