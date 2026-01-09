@@ -1,11 +1,20 @@
+import { useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 
 function Projects() {
+  const [expandedIndex, setExpandedIndex] = useState(null);
   const projects = [
     {
-      title: "AI Resume Builder",
+      title: "Sentinel - Reimbursement Fraud Detection System",
+      description: "Sentinel is a software that simulates a real-world corporate reimbursement workflow. It processes reimbursement requests with receipt image uploads, using OCR and AI-based extraction to validate claims against submitted data. The system applies rule-based checks, historical analysis, and perceptual hashing to detect duplicate or manipulated receipts. Each claim is scored and categorized into LOW, MEDIUM, HIGH, or CONFIRMED fraud levels based on policy violations and risk signals.",
+      tech: ["Spring Boot", "Microservices", "Gemini AI", "tesseract-OCR", "PostgreSQL", "Perceptual-Hash", "Text-Hash", "docker"],
+      image: "https://i.pinimg.com/736x/32/c2/1d/32c21d0dbd486ff16101f7b37df3f6f7.jpg",
+      github: "https://github.com/Sharan-0-dot/Sentinel",
+    },
+    {
+      title: "Stature - AI Resume Builder",
       description: "An intelligent microservices-based application that generates ATS-friendly resumes using Google's Gemini AI. The system uses Eureka service registry for service discovery, API Gateway for routing, and Apache POI to create professionally formatted, editable Word documents.",
-      tech: ["Spring Boot", "Microservices", "Gemini AI", "Apache POI", "Eureka", "API Gateway", "MySQL"],
+      tech: ["Spring Boot", "Microservices", "Gemini AI", "Apache POI", "Eureka", "API Gateway", "MySQL", "docker"],
       image: "./resumeBuilder.avif",
       link: "https://resume-builder-frontend-blond.vercel.app/",
       github: "https://github.com/Sharan-0-dot/ResumeBuilder-Micro-Service-",
@@ -13,7 +22,7 @@ function Projects() {
     {
       title: "Journal App",
       description: "A secure journaling platform where users can write and share blogs, with authentication to protect their accounts. It also includes a public real-time chat room, allowing users to interact and discuss ideas live.",
-      tech: ["React", "SpringBoot", "MongoDB", "Tailwind", "WebSockets"],
+      tech: ["React", "SpringBoot", "MongoDB", "Tailwind", "WebSockets", "docker"],
       image: "https://weandthecolor.com/wp-content/uploads/2012/10/Journal-iOS-Icon-Design-25356.jpg",
       link: "https://blog-app-psi-tan.vercel.app/",
       github: "https://github.com/Sharan-0-dot/BlogApp-SpringBoot",
@@ -21,7 +30,7 @@ function Projects() {
     {
       title: "Converge",
       description: "A real-time video conferencing application that enables seamless one-on-one and group meetings with high-quality audio and video, powered by ZegoCloud services. Converge provides a smooth, low-latency communication experience.",
-      tech: ["React", "SpringBoot", "ZegoCloud", "TailWind"],
+      tech: ["React", "SpringBoot", "ZegoCloud", "TailWind", "docker"],
       image: "https://i.pinimg.com/736x/04/ae/44/04ae44bdd748cc51bce741a4c54e78ad.jpg",
       link: "https://converge-psi.vercel.app/",
       github: "https://github.com/Sharan-0-dot/Converge-springboot",
@@ -44,7 +53,7 @@ function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-cyan-500/50 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/20"
+              className="group flex flex-col bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-cyan-500/50 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/20"
             >
               <div className="aspect-video overflow-hidden bg-gray-900">
                 <img
@@ -53,45 +62,48 @@ function Projects() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-2xl font-bold mb-3 text-cyan-400 group-hover:text-cyan-300 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 mb-4 leading-relaxed line-clamp-3">
+                <p className="text-gray-400 mb-4 leading-relaxed">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-3 py-1 text-xs bg-gray-700/50 text-cyan-400 rounded-full border border-gray-600"
+                <div className="mt-auto">
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="px-3 py-1 text-xs bg-gray-700/50 text-cyan-400 rounded-full border border-gray-600"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center gap-6">
+                    {project.link != null && <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-medium group/link"
                     >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                      View Live
+                      <ExternalLink size={16} className="group-hover/link:translate-x-1 transition-transform duration-300" />
+                    </a>
+                    }
 
-                <div className="flex items-center gap-6">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-medium group/link"
-                  >
-                    View Live
-                    <ExternalLink size={16} className="group-hover/link:translate-x-1 transition-transform duration-300" />
-                  </a>
-
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 font-medium group/link"
-                  >
-                    GitHub
-                    <ExternalLink size={16} className="group-hover/link:translate-x-1 transition-transform duration-300" />
-                  </a>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 font-medium group/link"
+                    >
+                      GitHub
+                      <ExternalLink size={16} className="group-hover/link:translate-x-1 transition-transform duration-300" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
