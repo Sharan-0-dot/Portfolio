@@ -1,12 +1,19 @@
-# React + Vite
+# Hi, I’m Sharan
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I’m a **Computer Science Engineering student** with a strong focus on **backend development**, passionate about building **scalable, real-world systems** rather than just demos.
 
-Currently, two official plugins are available:
+I primarily work with **Java & Spring Boot** for backend development and **React** for frontend, and I enjoy designing clean APIs, microservice architectures, and cloud-ready applications. Alongside development, I actively practice **Data Structures & Algorithms** to strengthen my problem-solving and system-design thinking.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### What I focus on
+- Building **production-grade backend systems** (Spring Boot, Microservices, REST APIs)
+- Developing **full-stack applications** (React + Spring Boot)
+- Working with **databases, authentication, and distributed systems**
+- Applying **DSA concepts** to write efficient and reliable code
+- Deploying and running applications on **cloud & containerized environments**
 
-## Expanding the ESLint configuration
+### What you’ll find here
+This portfolio showcases my **projects, experiments, and contributions**, reflecting my learning journey and practical experience in software engineering.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+I’m continuously learning, improving, and working toward building software that actually scales.
+
+📫 Feel free to explore my projects and connect with me.
