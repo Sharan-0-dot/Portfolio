@@ -22,7 +22,7 @@ function Hero({ scrollToSection }) {
         <p className="text-lg sm:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
           Building innovative solutions with Spring Boot, React & Microservices
           <br />
-          <span className="text-cyan-400 font-semibold">700+ LeetCode</span> problems solved 🚀
+          <span className="text-cyan-400 font-semibold">800+ LeetCode</span> problems solved 🚀
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
