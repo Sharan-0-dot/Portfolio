@@ -7,7 +7,7 @@ function Projects() {
       description: "Sentinel is a software that simulates a real-world corporate reimbursement workflow. It processes reimbursement requests with receipt image uploads, using OCR and AI-based extraction to validate claims against submitted data. The system applies rule-based checks, historical analysis, and perceptual hashing to detect duplicate or manipulated receipts. Each claim is scored and categorized into LOW, MEDIUM, HIGH, or CONFIRMED fraud levels based on policy violations and risk signals.",
       tech: ["Spring Boot", "Microservices", "Gemini AI", "tesseract-OCR", "PostgreSQL", "Perceptual-Hash", "Text-Hash", "docker"],
       image: "https://i.pinimg.com/736x/32/c2/1d/32c21d0dbd486ff16101f7b37df3f6f7.jpg",
-      link: "http://13.235.9.206:3000/",
+      link: "https://sentinel-app.duckdns.org/",
       github: "https://github.com/Sharan-0-dot/Sentinel",
     },
     {
