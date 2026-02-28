@@ -49,7 +49,7 @@ function About() {
               <p className="text-lg text-gray-300 leading-relaxed">
                 I'm a computer science engineering student who enjoys building reliable backend systems and improving through consistent problem-solving. I regularly practice DSA —
                 <span className="text-cyan-400 font-semibold"> 800+ problems on LeetCode</span> with a
-                <span className="text-cyan-400 font-semibold"> contest rating of 1732</span>, focusing on strong fundamentals and clean problem-solving.
+                <span className="text-cyan-400 font-semibold"> contest rating of 1802</span>, focusing on strong fundamentals and clean problem-solving.
               </p>
             </div>
 
@@ -81,7 +81,7 @@ function About() {
                       </div>
                       <span className="text-gray-500">|</span>
                       <div className="text-xl font-semibold text-yellow-400">
-                        1732
+                        1802
                       </div>
                     </div>
                     <div className="text-sm text-gray-400">
