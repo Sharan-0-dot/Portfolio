@@ -3,6 +3,14 @@ import { ExternalLink } from 'lucide-react';
 function Projects() {
   const projects = [
     {
+      title: "FreightIQ - Intelligent Freight Marketplace",
+      description: "FreightIQ is a polyglot freight marketplace that connects companies with drivers through a competitive bidding system. Companies post shipments, drivers place bids, and an ML model predicts optimal freight pricing using XGBoost. The platform handles the full shipment lifecycle — posting, bidding, driver assignment, live status tracking, and post-delivery reviews — backed by a microservices architecture with separate Java and Python services.",
+      tech: ["Spring Boot", "Microservices", "FastAPI", "XGBoost", "PostgreSQL", "React", "Docker", "AWS EC2"],
+      image: "https://i.pinimg.com/736x/97/01/73/9701734ceefba47589c0158f96cf05b5.jpg",
+      link: "https://freightiq.duckdns.org/",
+      github: "https://github.com/Sharan-0-dot/FreightIQ",
+    },
+    {
       title: "Sentinel - Reimbursement Fraud Detection System",
       description: "Sentinel is a software that simulates a real-world corporate reimbursement workflow. It processes reimbursement requests with receipt image uploads, using OCR and AI-based extraction to validate claims against submitted data. The system applies rule-based checks, historical analysis, and perceptual hashing to detect duplicate or manipulated receipts. Each claim is scored and categorized into LOW, MEDIUM, HIGH, or CONFIRMED fraud levels based on policy violations and risk signals.",
       tech: ["Spring Boot", "Microservices", "Gemini AI", "tesseract-OCR", "PostgreSQL", "Perceptual-Hash", "Text-Hash", "docker"],
@@ -107,14 +115,6 @@ function Projects() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Warning Banner */}
-        <div className="mt-12 bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur-sm border border-orange-500/30 rounded-xl p-4">
-          <p className="text-center text-orange-300 font-medium flex items-center justify-center gap-2">
-            <span>⚠️</span>
-            <span>These projects are hosted on Render's free tier. Initial load may take 30–60 seconds.</span>
-          </p>
         </div>
       </div>
     </section>

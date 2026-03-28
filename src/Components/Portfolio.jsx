@@ -9,6 +9,7 @@ import Resume from "./Resume";
 import Contact from './Contact';
 import Footer from './Footer';
 import LeetCode from "./LeetDSA";
+import Experience from "./Experience";
 
 function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero");
@@ -22,7 +23,7 @@ function Portfolio() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ["hero", "about", "leetcode", "projects", "certifications", "publications", "resume", "contact"];
+    const sectionIds = ["hero", "about", "experience", "leetcode", "projects", "certifications", "publications", "resume", "contact"];
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -66,6 +67,7 @@ function Portfolio() {
       />
       <Hero scrollToSection={scrollToSection} scrollY={scrollY} />
       <About />
+      <Experience />
       <LeetCode />
       <Projects />
       <Certifications />

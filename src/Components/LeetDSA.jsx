@@ -1,4 +1,11 @@
 function LeetCode() {
+  const stats = [
+    { label: "Problems Solved", value: "850+" },
+    { label: "Peak Rating", value: "1832" },
+    { label: "Global Rank", value: "Top 6%" },
+    { label: "Consistent Practise", value: "500+ Days Of" },
+  ];
+
   return (
     <section id="leetcode" className="py-20 px-6">
       <div className="container mx-auto max-w-6xl">
@@ -11,6 +18,21 @@ function LeetCode() {
           </p>
         </div>
 
+        {/* Stats Row */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-xl p-4 text-center hover:border-cyan-500/30 hover:shadow-cyan-500/10 hover:shadow-md transition-all duration-300"
+            >
+              <p className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                {stat.value}
+              </p>
+              <p className="text-gray-400 text-sm mt-1">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+
         <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300">
           <div className="flex flex-col items-center space-y-6">
             <div className="w-full flex justify-center overflow-hidden rounded-xl">
@@ -20,7 +42,7 @@ function LeetCode() {
                 className="w-full max-w-2xl rounded-lg shadow-lg hover:scale-105 transition-transform duration-500"
               />
             </div>
-            
+
             <div className="flex flex-wrap justify-center gap-4 mt-6">
               <a
                 href="https://leetcode.com/sharansc482"
@@ -29,10 +51,10 @@ function LeetCode() {
                 className="group px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 flex items-center gap-2"
               >
                 <span>View Full Profile</span>
-                <svg 
-                  className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" 
-                  fill="none" 
-                  stroke="currentColor" 
+                <svg
+                  className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -51,4 +73,5 @@ function LeetCode() {
     </section>
   );
 }
+
 export default LeetCode;
