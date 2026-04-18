@@ -3,6 +3,16 @@ import { ExternalLink, Trophy } from 'lucide-react';
 function Certifications() {
   const achievements = [
     {
+      title: "1st Place — OxyHack",
+      issuer: "OxyHack · Oxford",
+      date: "2026",
+      description: "Built ForeignPay — a fintech platform enabling seamless cross-border payments with secure transaction processing, scalable Spring Boot backend, and React frontend for real-time user interactions.",
+      icon: "🏆",
+      color: "from-green-500/15 to-emerald-500/15",
+      border: "border-green-500/30 hover:border-green-400/50",
+      text: "text-green-400",
+    },
+    {
       title: "2nd Place — HackSetu",
       issuer: "BNMIT · TATVA",
       date: "2026",
