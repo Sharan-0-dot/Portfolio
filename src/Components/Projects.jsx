@@ -3,6 +3,14 @@ import { ExternalLink } from 'lucide-react';
 function Projects() {
   const projects = [
     {
+      title: "ForeignPay - UPI Proxy Wallet for International Tourists",
+      description: "ForeignPay is a fintech proof-of-concept that enables international tourists in India to transact via UPI without a local bank account. Tourists onboard through passport-based KYC, top-up an INR wallet via Razorpay, and payments are routed through a corporate proxy UPI account with ledger-based debit — modeling a real cross-border payment lifecycle. The platform includes an AI assistant powered by Grok for spend insights, a React analytics dashboard, and Cloudinary-backed document storage.",
+      tech: ["Spring Boot", "React", "PostgreSQL", "Razorpay", "Cloudinary", "Grok AI", "AWS EC2"],
+      image: "https://i.pinimg.com/1200x/f9/fa/a2/f9faa28b82a1fb6de592df7b0ab4ca2b.jpg",
+      link: "https://foreignpay.duckdns.org/",
+      github: "https://github.com/Sharan-0-dot/ForeignPay",
+    },
+    {
       title: "FreightIQ - Intelligent Freight Marketplace",
       description: "FreightIQ is a polyglot freight marketplace that connects companies with drivers through a competitive bidding system. Companies post shipments, drivers place bids, and an ML model predicts optimal freight pricing using XGBoost. The platform handles the full shipment lifecycle — posting, bidding, driver assignment, live status tracking, and post-delivery reviews — backed by a microservices architecture with separate Java and Python services.",
       tech: ["Spring Boot", "Microservices", "FastAPI", "XGBoost", "PostgreSQL", "React", "Docker", "AWS EC2"],
