@@ -1,17 +1,19 @@
+import { fontDisplay, fontMono } from "./designTokens";
+
 function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection, scrollY }) {
-  const navBg = scrollY > 50 
-    ? "bg-gray-900/95 backdrop-blur-lg shadow-lg border-b border-gray-800" 
-    : "bg-transparent";
-  
+  const navBg = scrollY > 50
+  ? "bg-[#10131F]/25 backdrop-blur-xl border-b border-white/10"
+  : "bg-transparent";
+
   const navItems = [
     { id: "hero", label: "Home" },
     { id: "about", label: "About" },
     { id: "experience", label: "Experience" },
-    { id: "leetcode", label: "Leetcode" },
+    { id: "resume", label: "Resume" },
+    { id: "leetcode", label: "LeetCode" },
     { id: "projects", label: "Projects" },
     { id: "certifications", label: "Certifications" },
     { id: "publications", label: "Publications" },
-    { id: "resume", label: "Resume" },
     { id: "contact", label: "Contact" }
   ];
 
@@ -22,32 +24,30 @@ function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection,
 
           <button
             onClick={() => scrollToSection("hero")}
-            className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300"
+            className={`${fontDisplay} text-xl font-bold text-[#EDEFF7] hover:text-[#6FA8FF] transition-colors duration-300`}
           >
-            Sharan S C
+            Sharan
           </button>
 
-          <div className="hidden md:flex space-x-8">
+          <div className={`hidden md:flex space-x-7 ${fontMono} text-sm`}>
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={`relative transition-colors duration-300 ${
-                  activeSection === item.id
-                    ? "text-cyan-400"
-                    : "text-gray-300 hover:text-cyan-400"
+                  activeSection === item.id ? "text-[#6FA8FF]" : "text-[#8891A8] hover:text-[#EDEFF7]"
                 }`}
               >
                 {item.label}
                 {activeSection === item.id && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
+                  <span className="absolute -bottom-1.5 left-0 right-0 h-px bg-[#6FA8FF]" />
                 )}
               </button>
             ))}
           </div>
 
           <button
-            className="md:hidden text-gray-300 hover:text-cyan-400 transition-colors"
+            className="md:hidden text-[#8891A8] hover:text-[#6FA8FF] transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -61,18 +61,14 @@ function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection,
           </button>
         </div>
 
-        <div className={`md:hidden overflow-hidden transition-all duration-300 ${
-          isMenuOpen ? "max-h-96 mt-4" : "max-h-0"
-        }`}>
-          <div className="py-4 space-y-2 bg-gray-800/90 backdrop-blur-md rounded-lg">
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ${isMenuOpen ? "max-h-96 mt-4" : "max-h-0"}`}>
+          <div className={`py-4 space-y-1 bg-[#10131F]/90 backdrop-blur-md rounded-2xl border border-white/10 ${fontMono} text-sm`}>
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left px-4 py-3 transition-colors rounded-lg ${
-                  activeSection === item.id 
-                    ? "text-cyan-400 bg-gray-700/50" 
-                    : "text-gray-300 hover:bg-gray-700/30"
+                className={`block w-full text-left px-5 py-3 transition-colors rounded-lg ${
+                  activeSection === item.id ? "text-[#6FA8FF] bg-white/5" : "text-[#8891A8] hover:bg-white/5"
                 }`}
               >
                 {item.label}

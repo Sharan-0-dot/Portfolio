@@ -1,76 +1,53 @@
+import { eyebrow, heading, gradientText, fontMono, cardBase, btnPrimary } from "./designTokens";
+
 function LeetCode() {
   const stats = [
-    { label: "Problems Solved", value: "850+" },
+    { label: "Problems Solved", value: "1000+" },
     { label: "Peak Rating", value: "1832" },
-    { label: "Global Rank", value: "Top 6%" },
-    { label: "Consistent Practise", value: "500+ Days Of" },
+    { label: "Global Rank", value: "Top 5%" },
+    { label: "Consistent Practice", value: "500+ Days" },
   ];
 
   return (
-    <section id="leetcode" className="py-20 px-6">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-            LeetCode Journey
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Tracking my progress in algorithmic problem-solving and competitive programming
-          </p>
-        </div>
+    <div>
+      <p className={eyebrow}>04 — LeetCode</p>
+      <h2 className={`${heading} mt-3 mb-4`}>
+        Reps <span className={gradientText}>that add up</span>
+      </h2>
+      <p className="text-[#8891A8] mb-10">Tracking progress in algorithmic problem-solving and competitive programming.</p>
 
-        {/* Stats Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-xl p-4 text-center hover:border-cyan-500/30 hover:shadow-cyan-500/10 hover:shadow-md transition-all duration-300"
-            >
-              <p className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                {stat.value}
-              </p>
-              <p className="text-gray-400 text-sm mt-1">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300">
-          <div className="flex flex-col items-center space-y-6">
-            <div className="w-full flex justify-center overflow-hidden rounded-xl">
-              <img
-                src="https://leetcard.jacoblin.cool/sharansc482?ext=heatmap"
-                alt="LeetCode Stats"
-                className="w-full max-w-2xl rounded-lg shadow-lg hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-4 mt-6">
-              <a
-                href="https://leetcode.com/sharansc482"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 flex items-center gap-2"
-              >
-                <span>View Full Profile</span>
-                <svg
-                  className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </a>
-            </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        {stats.map((stat) => (
+          <div key={stat.label} className={`${cardBase} p-4 text-center`}>
+            <p className={`${fontMono} text-2xl font-bold text-[#6FA8FF]`}>{stat.value}</p>
+            <p className="text-[#8891A8] text-xs mt-1">{stat.label}</p>
           </div>
-        </div>
+        ))}
+      </div>
 
-        <div className="mt-8 text-center">
-          <p className="text-gray-500 text-sm">
-            Consistency is key • Keep solving, keep growing
-          </p>
+      <div className={`${cardBase} p-8`}>
+        <div className="flex flex-col items-center space-y-6">
+          <div className="w-full flex justify-center overflow-hidden rounded-xl">
+            <img
+              src="https://leetcard.jacoblin.cool/sharansc482?ext=heatmap"
+              alt="LeetCode Stats"
+              className="w-full max-w-2xl rounded-lg"
+            />
+          </div>
+          <a
+            href="https://leetcode.com/sharansc482"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={btnPrimary}
+          >
+            View Full Profile
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
