@@ -62,7 +62,7 @@ function Certifications() {
         {certifications.map((cert) => (
           <div key={cert.title} className={`${cardBase} overflow-hidden`}>
             <div className="aspect-square overflow-hidden bg-[#0A0D16] flex items-center justify-center p-8">
-              <img src={cert.image} alt={cert.title} className="max-w-full max-h-full object-contain" />
+              <img src={cert.image} alt={cert.title} loading="lazy" decoding="async" className="max-w-full max-h-full object-contain" />
             </div>
             <div className="p-6">
               <h3 className="text-lg font-bold mb-1 text-[#EDEFF7]">{cert.title}</h3>

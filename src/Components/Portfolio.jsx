@@ -16,13 +16,6 @@ import Panel from "./Panel";
 function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     const sectionIds = ["hero", "about", "experience", "resume", "leetcode", "projects", "certifications", "publications", "contact"];
@@ -61,10 +54,9 @@ function Portfolio() {
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
         scrollToSection={scrollToSection}
-        scrollY={scrollY}
       />
 
-      <Hero scrollToSection={scrollToSection} scrollY={scrollY} />
+      <Hero scrollToSection={scrollToSection} />
 
       <Panel id="about"><About /></Panel>
       <Panel id="experience"><Experience /></Panel>

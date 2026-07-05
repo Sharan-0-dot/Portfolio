@@ -1,9 +1,43 @@
+import { useState, useEffect } from "react";
 import { fontDisplay, fontMono } from "./designTokens";
 
-function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection, scrollY }) {
-  const navBg = scrollY > 50
-  ? "bg-[#10131F]/25 backdrop-blur-xl border-b border-white/10"
-  : "bg-transparent";
+function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection }) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const isScrolled = window.scrollY > 50;
+        setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Lock background scroll while the mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+      return () => {
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isMenuOpen]);
+
+  const navBg = scrolled
+    ? "bg-[#10131F]/25 backdrop-blur-xl border-b border-white/10"
+    : "bg-transparent";
 
   const navItems = [
     { id: "hero", label: "Home" },
@@ -18,10 +52,9 @@ function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection,
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${navBg}`}>
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-
           <button
             onClick={() => scrollToSection("hero")}
             className={`${fontDisplay} text-xl font-bold text-[#EDEFF7] hover:text-[#6FA8FF] transition-colors duration-300`}
@@ -60,21 +93,34 @@ function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection,
             </svg>
           </button>
         </div>
+      </div>
 
-        <div className={`md:hidden overflow-hidden transition-all duration-300 ${isMenuOpen ? "max-h-96 mt-4" : "max-h-0"}`}>
-          <div className={`py-4 space-y-1 bg-[#10131F]/90 backdrop-blur-md rounded-2xl border border-white/10 ${fontMono} text-sm`}>
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left px-5 py-3 transition-colors rounded-lg ${
-                  activeSection === item.id ? "text-[#6FA8FF] bg-white/5" : "text-[#8891A8] hover:bg-white/5"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
+      {/* Mobile dropdown: rendered outside the height-transition wrapper so it can scroll internally */}
+      <div
+        className={`md:hidden fixed left-4 right-4 transition-all duration-300 origin-top ${
+          isMenuOpen ? "opacity-100 scale-y-100 pointer-events-auto" : "opacity-0 scale-y-95 pointer-events-none"
+        }`}
+        style={{ top: "72px" }}
+      >
+        <div
+          className={`py-2 space-y-1 bg-[#10131F]/95 backdrop-blur-md rounded-2xl border border-white/10 ${fontMono} text-sm overflow-y-auto overscroll-contain`}
+          style={{
+            maxHeight: "calc(100dvh - 100px)",
+            WebkitOverflowScrolling: "touch",
+            touchAction: "pan-y",
+          }}
+        >
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`block w-full text-left px-5 py-3.5 transition-colors rounded-lg ${
+                activeSection === item.id ? "text-[#6FA8FF] bg-white/5" : "text-[#8891A8] hover:bg-white/5"
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
       </div>
     </nav>

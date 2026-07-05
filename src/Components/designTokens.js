@@ -25,7 +25,7 @@ export const gradientText =
 export const bodyText = `${fontBody} text-[#B7BFD4] leading-relaxed`;
 
 export const cardBase =
-  "bg-white/[0.03] backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#6FA8FF]/40 transition-all duration-300";
+  "bg-white/[0.03] backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#6FA8FF]/40 transition-colors duration-300";
 
 export const chip =
   `${fontMono} text-[11px] px-3 py-1 rounded-full border border-[#6FA8FF]/25 text-[#6FA8FF] bg-[#6FA8FF]/[0.06]`;
