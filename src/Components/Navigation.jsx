@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { fontDisplay, fontMono } from "./designTokens";
 
 function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection }) {
   const [scrolled, setScrolled] = useState(false);
+  const pendingSectionRef = useRef(null);
 
   useEffect(() => {
     let ticking = false;
@@ -19,7 +20,6 @@ function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection 
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock background scroll while the mobile menu is open
   useEffect(() => {
     if (isMenuOpen) {
       const scrollY = window.scrollY;
@@ -31,9 +31,15 @@ function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection 
         document.body.style.top = "";
         document.body.style.width = "";
         window.scrollTo(0, scrollY);
+
+        if (pendingSectionRef.current) {
+          const sectionId = pendingSectionRef.current;
+          pendingSectionRef.current = null;
+          requestAnimationFrame(() => scrollToSection(sectionId));
+        }
       };
     }
-  }, [isMenuOpen]);
+  }, [isMenuOpen, scrollToSection]);
 
   const navBg = scrolled
     ? "bg-[#10131F]/25 backdrop-blur-xl border-b border-white/10"
@@ -51,6 +57,13 @@ function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection 
     { id: "contact", label: "Contact" }
   ];
 
+  const handleDesktopClick = (id) => scrollToSection(id);
+
+  const handleMobileClick = (id) => {
+    pendingSectionRef.current = id;
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${navBg}`}>
       <div className="container mx-auto px-6 py-4">
@@ -66,7 +79,7 @@ function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection 
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleDesktopClick(item.id)}
                 className={`relative transition-colors duration-300 ${
                   activeSection === item.id ? "text-[#6FA8FF]" : "text-[#8891A8] hover:text-[#EDEFF7]"
                 }`}
@@ -95,7 +108,6 @@ function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection 
         </div>
       </div>
 
-      {/* Mobile dropdown: rendered outside the height-transition wrapper so it can scroll internally */}
       <div
         className={`md:hidden fixed left-4 right-4 transition-all duration-300 origin-top ${
           isMenuOpen ? "opacity-100 scale-y-100 pointer-events-auto" : "opacity-0 scale-y-95 pointer-events-none"
@@ -113,7 +125,7 @@ function Navigation({ activeSection, isMenuOpen, setIsMenuOpen, scrollToSection 
           {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => scrollToSection(item.id)}
+              onClick={() => handleMobileClick(item.id)}
               className={`block w-full text-left px-5 py-3.5 transition-colors rounded-lg ${
                 activeSection === item.id ? "text-[#6FA8FF] bg-white/5" : "text-[#8891A8] hover:bg-white/5"
               }`}
