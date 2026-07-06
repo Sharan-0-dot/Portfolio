@@ -4,6 +4,14 @@ import { eyebrow, heading, gradientText, bodyText, chip, cardBase, fontDisplay, 
 function Projects() {
   const projects = [
     {
+      title: "JobSearch",
+      subtitle: "AI-Powered Job Search Agent with Resume-JD Gap Analysis",
+      description: "Agentic job-search platform combining RAG-based semantic matching with resume-to-JD gap analysis. Built on LangChain4j with a tool-calling architecture, PostgreSQL/pgvector for semantic search, and multi-turn session memory for conversational query refinement.",
+      tech: ["Spring Boot", "LangChain4j", "PostgreSQL", "pgvector", "Docker", "Gemini AI"],
+      link: null,
+      github: "https://github.com/Sharan-0-dot/JobSearch",
+    },
+    {
       title: "ForeignPay",
       subtitle: "UPI Proxy Wallet for International Tourists",
       description: "Fintech proof-of-concept enabling international tourists to transact via UPI without a local bank account. Passport-based KYC, Razorpay wallet top-up, ledger-based debit through a corporate proxy UPI account, Grok-powered spend insights.",
