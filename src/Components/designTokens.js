@@ -1,13 +1,12 @@
-
 export const colors = {
-  void: "#05070C",         // page background — near-black deep space
-  panel: "#10131F",        // glass panel fill
+  void: "#05070C",         
+  panel: "#10131F",        
   panelBorder: "rgba(255,255,255,0.08)",
-  moonlight: "#E4E9F2",    // primary accent — pale lunar silver
-  earthlight: "#6FA8FF",   // secondary accent — cool reflected "earthshine" blue
-  ember: "#D98E63",        // warm accent, used sparingly for contrast
-  starlight: "#EDEFF7",    // primary text
-  muted: "#8A93AC",        // secondary text
+  moonlight: "#E4E9F2",    
+  earthlight: "#6FA8FF",   
+  ember: "#D98E63",        
+  starlight: "#EDEFF7",    
+  muted: "#8A93AC",        
 };
 
 export const fontDisplay = "font-['Space_Grotesk']";
@@ -25,16 +24,16 @@ export const gradientText =
 export const bodyText = `${fontBody} text-[#B7BFD4] leading-relaxed`;
 
 export const cardBase =
-  "bg-white/[0.03] backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#6FA8FF]/40 transition-colors duration-300";
+  "bg-white/[0.06] md:bg-white/[0.03] backdrop-blur-none md:backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#6FA8FF]/40 transition-colors duration-300";
 
 export const chip =
   `${fontMono} text-[11px] px-3 py-1 rounded-full border border-[#6FA8FF]/25 text-[#6FA8FF] bg-[#6FA8FF]/[0.06]`;
 
 export const btnPrimary =
-  `${fontMono} inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-medium text-[#05070C] bg-gradient-to-r from-[#E4E9F2] to-[#6FA8FF] hover:shadow-[0_0_30px_-5px_rgba(111,168,255,0.5)] hover:scale-[1.03] transition-all duration-300`;
+  `${fontMono} inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-medium text-[#05070C] bg-gradient-to-r from-[#E4E9F2] to-[#6FA8FF] hover:shadow-[0_0_30px_-5px_rgba(111,168,255,0.5)] hover:scale-[1.03] transition-[transform,box-shadow] duration-300`;
 
 export const btnSecondary =
-  `${fontMono} inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-medium border border-[#6FA8FF]/40 text-[#6FA8FF] hover:bg-[#6FA8FF]/10 hover:scale-[1.03] transition-all duration-300`;
+  `${fontMono} inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-medium border border-[#6FA8FF]/40 text-[#6FA8FF] hover:bg-[#6FA8FF]/10 hover:scale-[1.03] transition-[transform,background-color] duration-300`;
 
 export const link =
   "text-[#6FA8FF] hover:text-[#D98E63] transition-colors duration-300";

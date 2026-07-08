@@ -1,6 +1,6 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Stars, useTexture } from "@react-three/drei";
-import { Suspense, useRef, useEffect, useState, useMemo } from "react";
+import { Suspense, useRef, useEffect, useState } from "react";
 import * as THREE from "three";
 
 const MOON_COLOR_URL = "/textures/color_map.jpg";
@@ -77,82 +77,26 @@ function Scene() {
   );
 }
 
-function StaticMobileBackground() {
-  const dots = useMemo(
-    () =>
-      Array.from({ length: 40 }, (_, i) => ({
-        id: i,
-        top: Math.random() * 100,
-        left: Math.random() * 100,
-        size: Math.random() * 2 + 0.5,
-        delay: Math.random() * 4,
-        duration: Math.random() * 3 + 2,
-      })),
-    []
-  );
-
-  return (
-    <div className="absolute inset-0 overflow-hidden">
-      
-      <div
-        className="absolute rounded-full"
-        style={{
-          top: "-10%",
-          right: "-15%",
-          width: "60vw",
-          height: "60vw",
-          maxWidth: 420,
-          maxHeight: 420,
-          background:
-            "radial-gradient(circle at 35% 35%, rgba(228,233,242,0.35), rgba(111,168,255,0.12) 45%, transparent 70%)",
-          filter: "blur(2px)",
-        }}
-      />
-      
-      {dots.map((d) => (
-        <span
-          key={d.id}
-          className="absolute rounded-full bg-white"
-          style={{
-            top: `${d.top}%`,
-            left: `${d.left}%`,
-            width: d.size,
-            height: d.size,
-            opacity: 0.6,
-            animation: `twinkle ${d.duration}s ease-in-out ${d.delay}s infinite`,
-          }}
-        />
-      ))}
-      <style>{`
-        @keyframes twinkle {
-          0%, 100% { opacity: 0.2; }
-          50% { opacity: 0.9; }
-        }
-      `}</style>
-    </div>
-  );
-}
-
 export default function SolarSystemBackground() {
   const isMobile = useIsMobile();
 
   return (
     <div className="fixed inset-0 -z-10 pointer-events-none bg-[#020305]">
-      {isMobile ? (
-        <StaticMobileBackground />
-      ) : (
-        <Canvas
-          camera={{ position: [0, 0, 7], fov: 32 }}
-          dpr={[1, 2]}
-          gl={{ antialias: true, alpha: true }}
-          onCreated={({ gl }) => gl.setClearColor("#020305", 1)}
-        >
-          <Scene />
-        </Canvas>
-      )}
+      {!isMobile && (
+        <>
+          <Canvas
+            camera={{ position: [0, 0, 7], fov: 32 }}
+            dpr={[1, 2]}
+            gl={{ antialias: true, alpha: true }}
+            onCreated={({ gl }) => gl.setClearColor("#020305", 1)}
+          >
+            <Scene />
+          </Canvas>
 
-      <div className="absolute inset-0 [background:radial-gradient(ellipse_at_center,transparent_40%,rgba(2,3,5,0.7)_100%)]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#020305]/40 via-[#020305]/70 to-[#020305]/95" />
+          <div className="absolute inset-0 [background:radial-gradient(ellipse_at_center,transparent_40%,rgba(2,3,5,0.7)_100%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#020305]/40 via-[#020305]/70 to-[#020305]/95" />
+        </>
+      )}
     </div>
   );
 }
