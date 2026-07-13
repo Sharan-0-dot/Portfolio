@@ -8,7 +8,7 @@ function Projects() {
       subtitle: "AI-Powered Job Search Agent with Resume-JD Gap Analysis",
       description: "Agentic job-search platform combining RAG-based semantic matching with resume-to-JD gap analysis. Built on LangChain4j with a tool-calling architecture, PostgreSQL/pgvector for semantic search, and multi-turn session memory for conversational query refinement.",
       tech: ["Spring Boot", "LangChain4j", "PostgreSQL", "pgvector", "Docker", "Gemini AI"],
-      link: null,
+      link: "https://jobsearch.sharansc.tech",
       github: "https://github.com/Sharan-0-dot/JobSearch",
     },
     {
